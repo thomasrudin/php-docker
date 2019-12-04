@@ -5,6 +5,7 @@ RUN docker-php-ext-install pdo
 
 RUN apt-get update \
     && apt-get install -y \
+	libonig-dev \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
