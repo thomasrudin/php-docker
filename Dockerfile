@@ -1,7 +1,6 @@
 FROM php:7-apache
 
 RUN a2enmod rewrite
-RUN docker-php-ext-install pdo
 
 RUN apt-get update && apt-get install -y \
 	libonig-dev \
@@ -16,9 +15,10 @@ RUN apt-get update && apt-get install -y \
 	python3
 
 RUN docker-php-ext-configure gd \
-    && docker-php-ext-install -j$(nproc) gd mbstring pdo pdo_mysql pdo_pgsql pgsql \
+    && docker-php-ext-install -j$(nproc) gd mbstring pdo pdo_mysql pdo_pgsql pgsql opcache \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
+		&& pecl install apcu \
     && pecl install memcached \
     && docker-php-ext-enable memcached
 
