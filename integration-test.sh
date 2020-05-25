@@ -20,7 +20,7 @@ function cleanup {
 
 trap cleanup EXIT
 
-curl http://127.0.0.1:8080/ || exit 1
+curl http://127.0.0.1/ || exit 1
 
 # TODO: proper testing
 
