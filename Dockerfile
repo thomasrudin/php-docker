@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
   libpq-dev \
   sendmail \
   python3 \
-  graphviz
+  graphviz \
+  imagemagick
 
 RUN docker-php-ext-configure gd \
     && docker-php-ext-install -j$(nproc) gd mbstring pdo pdo_mysql pdo_pgsql pgsql opcache \
