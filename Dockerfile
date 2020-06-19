@@ -1,6 +1,4 @@
-FROM php:7.4.6-apache
-
-RUN a2enmod rewrite
+FROM mediawiki:1.34.1
 
 RUN apt-get update && apt-get install -y \
   libonig-dev \
@@ -11,17 +9,16 @@ RUN apt-get update && apt-get install -y \
   libmemcached-dev \
   libpng-dev \
   libpq-dev \
-  sendmail \
-  python3 \
-  graphviz \
-  imagemagick
+  sendmail
 
 RUN docker-php-ext-configure gd \
-    && docker-php-ext-install -j$(nproc) gd mbstring pdo pdo_mysql pdo_pgsql pgsql opcache \
+    && docker-php-ext-install -j$(nproc) gd pdo pdo_mysql pdo_pgsql pgsql \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
-    && pecl install apcu \
     && pecl install memcached \
     && docker-php-ext-enable memcached
 
 COPY php.ini $PHP_INI_DIR/conf.d/custom.ini
+COPY entrypoint.sh /entrypoint.sh
+
+CMD ["/entrypoint.sh"]
