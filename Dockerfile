@@ -1,4 +1,4 @@
-FROM mediawiki:1.35.0
+FROM mediawiki:1.35.1
 
 RUN apt-get update && apt-get install -y \
   libonig-dev \
