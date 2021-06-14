@@ -1,4 +1,4 @@
-FROM mediawiki:1.35.0
+FROM mediawiki:1.36.0
 
 # install deps
 RUN apt-get update && apt-get install -y \
@@ -23,8 +23,8 @@ RUN docker-php-ext-configure gd \
 # add mediawiki extensions
 COPY extensions/SimpleEmbed /var/www/html/extensions/SimpleEmbed
 RUN cd /var/www/html/extensions/ &&\
-  git clone --depth=1 https://github.com/wikimedia/mediawiki-extensions-MsUpload MsUpload  -b REL1_35 &&\
-  git clone --depth=1 https://github.com/wikimedia/mediawiki-extensions-TemplateStyles TemplateStyles -b REL1_35 &&\
+  git clone --depth=1 https://github.com/wikimedia/mediawiki-extensions-MsUpload MsUpload  -b REL1_36 &&\
+  git clone --depth=1 https://github.com/wikimedia/mediawiki-extensions-TemplateStyles TemplateStyles -b REL1_36 &&\
   git clone --depth=1 https://github.com/ProfessionalWiki/SimpleBatchUpload -b 1.8.2 &&\
   git clone --depth=1 https://github.com/cmln/mw-font-awesome/ -b 1.0 FontAwesome &&\
   # js slideshow
