@@ -1,0 +1,30 @@
+version: "2"
+
+
+
+services:
+ postgres:
+  image: postgres:13.2-alpine
+  restart: always
+  environment:
+   POSTGRES_PASSWORD: enter
+  volumes:
+   - "postgres_data:/var/lib/postgresql/data"
+
+ wiki:
+  build: .
+  restart: always
+  depends_on:
+    - "postgres"
+  ports:
+    - "80:80"
+  volumes:
+    - "wiki_images:/var/www/html/images"
+    - "wiki_cache:/var/www/html/cache"
+    - "./LocalSettings.php:/var/www/html/LocalSettings.php"
+  
+
+volumes:
+ postgres_data: {}
+ wiki_images: {}
+ wiki_cache: {}
