@@ -28,6 +28,7 @@ RUN cd /var/www/html/extensions/ &&\
   git clone --depth=1 https://github.com/ProfessionalWiki/SimpleBatchUpload -b 1.8.2 &&\
   git clone --depth=1 https://github.com/cmln/mw-font-awesome/ -b 1.0 FontAwesome &&\
   git clone --depth=1 https://github.com/DaSchTour/matomo-mediawiki-extension Matomo -b v4.0.0 &&\
+  git clone --depth=1 https://github.com/kulttuuri/DiscordNotifications.git -b 1.12 &&\
   # js slideshow
   git clone https://gitlab.com/hydrawiki/extensions/javascriptslideshow JavascriptSlideshow &&\
   cd JavascriptSlideshow && git checkout 62e5de29579e5764783641c6fd471f45d3770a05 && cd .. &&\
