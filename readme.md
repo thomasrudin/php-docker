@@ -11,6 +11,7 @@ Dockerized mediawiki
 * JavascriptSlideshow
 * AuthMinetest
 * SimpleEmbed
+* Matomo
 
 ## Credentials for local testing
 
